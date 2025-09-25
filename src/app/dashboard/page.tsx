@@ -19,7 +19,7 @@ export default async function DashboardPage() {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-700">
-                Hola, {user.firstName || user.emailAddresses[0]?.emailAddress}
+                Hola, {user.firstName ?? user.emailAddresses[0]?.emailAddress}
               </span>
               <UserButton afterSignOutUrl="/" />
             </div>
