@@ -25,7 +25,7 @@ export default clerkMiddleware(async (auth, req) => {
     // Check email whitelist
     const email = sessionClaims?.email as string
     if (email && !ALLOWED_EMAILS.includes(email)) {
-      await auth.signOut()
+      // Cannot sign out directly from middleware, redirect to unauthorized
       return NextResponse.redirect(new URL('/unauthorized', req.url))
     }
   }
